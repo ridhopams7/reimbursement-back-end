@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link href="https://fonts.googleapis.com/css?family=Tinos&display=swap" rel="stylesheet">
+
+  <style>
+    html,
+    body {
+      min-height: 150mm !important;
+      max-width: 297mm !important;
+      font-size: 14px !important;
+      font-family: 'Tinos', serif !important;
+    }
+
+    .container {
+      padding-right: 10px;
+      padding-left: 10px;
+      margin-right: auto;
+      margin-left: auto;
+      width: 1170px;
+    }
+
+    .report-header {
+      padding: 5px;
+      text-align: center;
+      clear: both;
+    }
+
+    .image-logo {
+      float: right;
+      padding: 5px;
+    }
+
+    .report-body {
+      overflow: hidden;
+      padding-top: 10px;
+      padding-left: 10px;
+      padding-right: 10px;
+      padding-bottom: 0px;
+      margin-bottom: 0px;
+    }
+
+    .journal-info {
+      min-width: 50%;
+      min-height: 60px;
+      overflow: hidden;
+      text-align: justify;
+    }
+
+    table {
+      width: 100%;
+      border: 1px solid rgb(0, 0, 0);
+    }
+
+    table tr td,
+    table tr th {
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      vertical-align: middle;
+      border: 1px solid rgb(0, 0, 0);
+    }
+
+    td {
+      vertical-align: top;
+      border-bottom: 1px solid rgb(0, 0, 0);
+      page-break-inside: avoid;
+      page-break-after: auto;
+    }
+
+    table,
+    th,
+    td {
+      border-spacing: 0;
+      border-collapse: collapse;
+    }
+
+    .table-container {
+      clear: both;
+      page-break-after: auto;
+      margin-top: 25px;
+    }
+
+    .text-align-right {
+      text-align: right;
+    }
+
+    .text-align-left {
+      text-align: left;
+    }
+
+    tbody tr:nth-child(odd) {
+      background-color: rgb(214, 214, 214);
+    }
+
+    .row {
+      width: 50%;
+      white-space: nowrap;
+    }
+
+    .content-fixed {
+      width: 35%;
+      display: inline-block;
+      padding: 5px;
+    }
+
+    .content {
+      min-width: 25%;
+      display: inline-block;
+      padding: 5px;
+    }
+
+    @page {
+      size: auto;
+    }
+  </style>
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="image-logo">
+      <img src={{logo}} alt="alts" width="auto" height="50px" />
+    </div>
+
+    <div class="report-header">
+      <h1>GENERAL LEDGER</h1>
+    </div>
+
+    <div class="report-body">
+      <div class="journal-info">
+        <div class="row">
+          <div class="content-fixed">
+            Organization
+          </div>
+          <div class="content">
+            {{organization.code}} - {{organization.name}}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="content-fixed">
+            Accounting Period
+          </div>
+          <div class="content">
+            {{accountingPeriod}}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="content-fixed">
+            Account
+          </div>
+          <div class="content">
+            {{account}}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="content-fixed">
+            Product
+          </div>
+          <div class="content">
+            {{product}}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="content-fixed">
+            Project
+          </div>
+          <div class="content">
+            {{project}}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="content-fixed">
+            Cost Center
+          </div>
+          <div class="content">
+            {{costCenter}}
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="content-fixed">
+            Customer
+          </div>
+          <div class="content">
+            {{customer}}
+          </div>
+        </div>
+      </div>
+
+      <div class="table-container">
+        {{#each dataArr as |data|}}
+        <div style="margin-top: 10px; page-break-inside: avoid !important">
+          <div style="margin-top: 15px; margin-bottom: 10px">
+            {{data.account.code}} - {{data.account.description}}
+          </div>
+          <table>
+            <thead>
+              <tr>
+                <th rowspan="2" style="width: 8%">
+                  Date
+                </th>
+                <th rowspan="2" style="width: 22%">
+                  Description
+                </th>
+                <th colspan="2" style="width: 20%">
+                  Entered
+                </th>
+                <th rowspan="2" style="width: 5%">
+                  Currency
+                </th>
+                <th rowspan="2" style="width: 5%">
+                  Exc. Rate
+                </th>
+                <th colspan="2" style="width: 20%">
+                  Accounted
+                </th>
+                <th colspan="2" style="width: 20%">
+                  Balance
+                </th>
+              </tr>
+              <tr>
+                <th style="width: 10%">
+                  Debit
+                </th>
+                <th style="width: 10%">
+                  Credit
+                </th>
+                <th style="width: 10%">
+                  Debit
+                </th>
+                <th style="width: 10%">
+                  Credit
+                </th>
+                <th style="width: 10%">
+                  Debit
+                </th>
+                <th style="width: 10%">
+                  Credit
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each data.lines as |dataLine|}}
+              <tr>
+                <td style="width: 8%">
+                  {{dataLine.accountingDate}}
+                </td>
+                <td style="width: 22%" class="text-align-left">
+                  {{dataLine.description}}
+                </td>
+                <td style="width: 10%" class="text-align-right">
+                  {{dataLine.entered.debit}}
+                </td>
+                <td style="width: 10%" class="text-align-right">
+                  {{dataLine.entered.credit}}
+                </td>
+                <td style="width: 5%">
+                  {{dataLine.currency}}
+                </td>
+                <td style="width: 5%" class="text-align-right">
+                  {{dataLine.exchangeRate}}
+                </td>
+                <td style="width: 10%" class="text-align-right">
+                  {{dataLine.accounted.debit}}
+                </td>
+                <td style="width: 10%" class="text-align-right">
+                  {{dataLine.accounted.credit}}
+                </td>
+                <td style="width: 10%" class="text-align-right">
+                  {{dataLine.balance.debit}}
+                </td>
+                <td style="width: 10%" class="text-align-right">
+                  {{dataLine.balance.credit}}
+                </td>
+              </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

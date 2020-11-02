@@ -1,0 +1,40 @@
+version: '2'
+
+volumes:
+  pgsql_data: {}
+
+networks:
+  finsysnet:
+    driver: bridge
+
+services:
+  postgresql:
+    image: 'reimbursement/alpine:postgresql-9.6'
+    user: "1000"
+    networks:
+      - finsysnet
+    ports:
+      - 127.0.0.1:5432:5432
+    environment:
+      - POSTGRESQL_USER=amafinsys
+      - POSTGRESQL_PASSWORD=amafinsys
+      - POSTGRESQL_DATABASE=vanilla
+    volumes:
+      - pgsql_data:/var/lib/pgsql/data
+    restart: always
+
+  finsys-api:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: 'ama/finsys-api:latest'
+    user: "1000"
+    networks:
+      - finsysnet
+    ports:
+      - 3001:3001
+    env_file:
+      - .env.docker
+    depends_on:
+      - postgresql
+    restart: always

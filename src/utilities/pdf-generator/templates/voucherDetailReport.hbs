@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Tinos&display=swap" rel="stylesheet">
+
+  <!-- <link rel="stylesheet" type="text/css" href="../../../public/bootstrap-4.3.1/dist/css/bootstrap.min.css"> -->
+
+  <style>
+    html,
+    body {
+      min-height: 150mm !important;
+      max-width: 297mm !important;
+      font-size: 12px;
+      font-family: 'Tinos' !important;
+    }
+
+    .report-header {
+      padding: 20px;
+      text-align: center;
+    }
+
+    .report-body {
+      overflow: hidden;
+      padding: 10px;
+    }
+
+    .info-personal-data {
+      width: 50%;
+      float: left;
+      min-height: 150px;
+      overflow: hidden;
+      text-align: justify;
+    }
+
+    .info-blank {
+      float: left;
+      width: 20%;
+      min-height: 10px;
+    }
+
+    .info-control-balance {
+      width: 30%;
+      float: left;
+    }
+
+    .boxed {
+      border: 1px solid rgb(0, 0, 0);
+      padding: 10px;
+    }
+
+    table tr td,
+    table tr th {
+      border: 1px solid rgb(0, 0, 0);
+      padding: 8px;
+      text-align: center;
+    }
+
+    th {
+      vertical-align: middle;
+      white-space: nowrap;
+    }
+
+    td {
+      vertical-align: top;
+    }
+
+    tbody tr:nth-child(odd) {
+      background-color: rgb(214, 214, 214);
+    }
+
+    .approval {
+      margin-top: 30px;
+      width: 50%;
+      overflow: hidden;
+      float: right;
+    }
+
+    .createdBy,
+    .approvedBy {
+      float: left;
+      width: 268px;
+      min-height: 200px;
+    }
+
+    @page {
+      size: auto;
+    }
+  </style>
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="report-header">
+      <h1>VOUCHER DETAIL REPORT</h1>
+    </div>
+    <div class="report-body">
+      <div>
+        <div class="info-personal-data">
+          <div class="row">
+            <div class="col-md-4">
+              Code
+            </div>
+            <div class="col-md-8">
+              00001/JUL-19/MARVE
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              Posting State
+            </div>
+            <div class="col-md-8">
+              Unposted
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              Accounting Period
+            </div>
+            <div class="col-md-8">
+              JUL-19
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              Accounting Date
+            </div>
+            <div class="col-md-8">
+              31-JUL-2019
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              Description
+            </div>
+            <div class="col-md-8">
+              Implementasi di UGM
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-4">
+              Organization
+            </div>
+            <div class="col-md-8">
+              Big Box
+            </div>
+          </div>
+        </div>
+
+        <div class="info-blank"></div>
+
+        <div class="info-control-balance">
+          <div class="boxed">
+            <div class="row">
+              <div class="col-md-6">
+                Control Balance
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                Actual Debit
+              </div>
+              <div class="col-md-1" style="text-align: right">
+                IDR
+              </div>
+              <div class="col-md-6" style="text-align: right">
+                14.500.000
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                Actual Credit
+              </div>
+              <div class="col-md-1" style="text-align: right">
+                IDR
+              </div>
+              <div class="col-md-6" style="text-align: right">
+                14.500.000
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                Budget Debit
+              </div>
+              <div class="col-md-1" style="text-align: right">
+                IDR
+              </div>
+              <div class="col-md-6" style="text-align: right">
+                0
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                Budget Credit
+              </div>
+              <div class="col-md-1" style="text-align: right">
+                IDR
+              </div>
+              <div class="col-md-6" style="text-align: right">
+                0
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div style="clear: both; page-break-after: auto">
+        <table style="width: 100%">
+          <thead>
+            <th>
+              No
+            </th>
+            <th>
+              Account No
+            </th>
+            <th style="min-width: 100px">
+              Description
+            </th>
+            <th style="min-width: 90px">
+              Debit
+            </th>
+            <th style="min-width: 90px">
+              Credit
+            </th>
+            <th>
+              Organization
+            </th>
+            <th>
+              Product
+            </th>
+            <th>
+              Project
+            </th>
+            <th>
+              Cost Center
+            </th>
+            <th>
+              Customer
+            </th>
+            <th>
+              Type
+            </th>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                1
+              </td>
+              <td>
+                1010201
+              </td>
+              <td style="text-align: left !important;">
+                Allowance for Doubtfull Account
+                <br />
+                Terima revenue dari UGM
+                <br />
+                <span style="font-style: italic">USD = IDR 14.500</span>
+                <br />
+                Invoice No: INV000001
+                <br />
+                Due Date: 31-SEP-2019
+              </td>
+              <td style="text-align: right">
+                1.000
+              </td>
+              <td style="text-align: right">
+                0
+              </td>
+              <td>
+                001
+              </td>
+              <td>
+                004
+              </td>
+              <td>
+                000
+              </td>
+              <td>
+                000
+              </td>
+              <td>
+                007
+              </td>
+              <td>
+                A
+              </td>
+            </tr>
+
+            <tr>
+              <td>
+                2
+              </td>
+              <td>
+                4010100
+              </td>
+              <td style="text-align: left !important;">
+                Implementation
+                <br />
+                Terima revenue dari UGM
+                <br />
+                <span style="font-style: italic">USD = IDR 14.500</span>
+              </td>
+              <td style="text-align: right">
+                0
+              </td>
+              <td style="text-align: right">
+                1.000
+              </td>
+              <td>
+                002
+              </td>
+              <td>
+                001
+              </td>
+              <td>
+                004
+              </td>
+              <td>
+                000
+              </td>
+              <td>
+                007
+              </td>
+              <td>
+                A
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="approval" style="page-break-inside: avoid">
+        <div class="boxed createdBy">
+          <div class="row">
+            <div class="col-md-12">
+              Created Date: 19-JUL-2019
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              Created By: Priscilia Indah Savira
+            </div>
+          </div>
+        </div>
+
+        <div class="boxed approvedBy">
+          <div class="row">
+            <div class="col-md-12">
+              Approved Date:
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              Approved By:
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <script src="../../../public/jquery.slim.min.js" type="text/javascript"></script>
+  <script src="../../../public/popper.js-1.14.7/dist/umd/popper.min.js" type="text/javascript"></script>
+  <script src="../../../public/bootstrap-4.3.1/dist/js/bootstrap.min.js" type="text/javascript"></script> -->
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
