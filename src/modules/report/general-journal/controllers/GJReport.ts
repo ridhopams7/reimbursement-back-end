@@ -195,14 +195,11 @@ class GeneralJournal {
         template.projectName = item.projectName;
         template.picName = item.picName;
         template.actualAmount = parseFloat(item.actualAmount).toLocaleString('en', { maximumFractionDigits: 4 });
-        // template.credit = parseFloat(item.je_lines_accountedCr).toLocaleString('en', { maximumFractionDigits: 4 });
         template.description = item.description;
         template.createdBy = item.createdBy;
 
         dataArr.push(template);
       });
-
-      // console.log('dataArr: ', dataArr);
 
       const headerTemplate = '<div style="display: none"></div>';
       const footerTemplate = `

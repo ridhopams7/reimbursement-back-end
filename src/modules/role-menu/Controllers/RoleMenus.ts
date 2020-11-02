@@ -4,6 +4,7 @@ import { RoleMenu } from "../../../model/entities/RoleMenu";
 import { Menu } from "../../../model/entities/Menu";
 
 class RoleMenus {
+
   static getDetailById = async (req: any, res: any): Promise<object> => { // eslint-disable-line @typescript-eslint/no-unused-vars
     try {
       let roleMenuRepo = getConnection().getRepository(RoleMenu);
@@ -22,6 +23,7 @@ class RoleMenus {
       return HttpResponse(400, error);
     }
   }
+
   static getDetailByRoleId = async (req: any, res: any): Promise<object> => { // eslint-disable-line @typescript-eslint/no-unused-vars
     try {
       const query = getConnection().getRepository(RoleMenu)
@@ -48,6 +50,7 @@ class RoleMenus {
       return HttpResponse(400, error);
     }
   }
+  
   static save = async (req: any, res: any): Promise<object> => {
     const connection = getConnection();
     const queryRunner = connection.createQueryRunner();
