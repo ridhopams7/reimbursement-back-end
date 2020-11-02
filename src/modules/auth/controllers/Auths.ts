@@ -14,19 +14,6 @@ import { RoleMenu } from '../../../model/entities/RoleMenu';
 class Auths {
   static signIn = async (req: any, res: any): Promise<object> => { // eslint-disable-line @typescript-eslint/no-unused-vars
     try {
-      // const query = getConnection().getRepository(User)
-      //   .createQueryBuilder("user")
-      //   .addSelect('user_fnd_role.permission', 'permission')
-      //   .addSelect('fnd_role.name', 'role')
-      //   .leftJoin(UserFndRole, "user_fnd_role", '"user_fnd_role"."userId" = user.id')
-      //   .leftJoin(FndRole, "fnd_role", '"fnd_role".id = "user_fnd_role"."fndRoleId"')
-      //   .leftJoinAndSelect("user.organization", "organization")
-      //   .where("user.userName = :userName", { userName: req.payload.username })
-      //   .andWhere("user.password = :password", { password: sha256(req.headers.information).toString() });
-      // let person: any = await query.getOne();
-      // let personRawData = await query.getRawMany();
-      // console.log(personRawData);
-
       const queryRole = getConnection().getRepository(UserApp)
         .createQueryBuilder("userApp")
         .addSelect('roleUser.roleId', 'role')
@@ -35,18 +22,8 @@ class Auths {
         .andWhere("userApp.password = :password", { password: sha256(req.headers.information).toString() });
       let person: any = await queryRole.getOne();
       let personRawData: any = await queryRole.getRawMany();
-      // let menus = {};
-      // let roles = {};
+      
       if (person && personRawData) {
-        // const roles = _.chain(personRawData)
-        //   .groupBy('userApp_id')
-        //   .map((data: object[]) => {
-        //     return {
-        //       // roled,
-        //       role: data.map((row: any) => row.role),
-        //     };
-        //   })
-        //   .value();
 
         let roles: any[] = [];
         for (let value of personRawData) {
