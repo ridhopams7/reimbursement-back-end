@@ -14,7 +14,7 @@
 
 ``` bash
 # clone the repo, example:
-$ git clone ssh://git@gitlab.playcourt.id:31022/AMAdev/AMA-MOEFIS-FINSYS-BACKEND.git my-project
+$ git clone ssh://git@github.com:ridhopams7/reimbursement-back-end.git my-project
 
 # go into app's directory
 $ cd my-project
