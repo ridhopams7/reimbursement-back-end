@@ -42,17 +42,17 @@ Please inject environtment variables (contained database connection server and J
 
 ``` bash
 # build for production
-$ npm run build:production
+$ npm run build:master
 ```
 
 ``` bash
-# build for stagging
-$ npm run build:stagging
+# build for uat
+$ npm run build:test
 ```
 
 ``` bash
 # build for development
-$ npm run build:stagging
+$ npm run build:development
 ```
 
 Server will be running using pm2 with host & port on environtment variables.
